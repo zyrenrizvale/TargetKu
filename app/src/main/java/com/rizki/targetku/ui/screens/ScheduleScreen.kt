@@ -22,8 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import android.app.Application
 import com.rizki.targetku.data.models.ScheduleItem
 import com.rizki.targetku.ui.components.StrictAlarmDialog
 import com.rizki.targetku.viewmodel.ScheduleViewModel
@@ -31,7 +34,9 @@ import com.rizki.targetku.ui.theme.*
 
 @Composable
 fun ScheduleScreen(
-    viewModel: ScheduleViewModel = viewModel()
+    viewModel: ScheduleViewModel = viewModel(
+        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+    )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 

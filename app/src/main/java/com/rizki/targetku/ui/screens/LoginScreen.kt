@@ -82,6 +82,7 @@ fun LoginScreen(
                     startY = 0f, endY = Float.POSITIVE_INFINITY
                 )
             )
+            .imePadding()
     ) {
         // Decorative circles
         DecorativeCircle(

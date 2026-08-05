@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import android.app.Application
 import com.rizki.targetku.data.models.GradeEntry
 import com.rizki.targetku.data.models.Task
 import com.rizki.targetku.data.models.TaskPriority
@@ -34,7 +36,9 @@ import java.text.DecimalFormat
 
 @Composable
 fun AcademicScreen(
-    viewModel: AcademicViewModel = viewModel()
+    viewModel: AcademicViewModel = viewModel(
+        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+    )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current

@@ -57,6 +57,7 @@ fun OnboardingScreen(
                     colors = listOf(GradientStart, GradientEnd)
                 )
             )
+            .imePadding()
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             // Top progress bar

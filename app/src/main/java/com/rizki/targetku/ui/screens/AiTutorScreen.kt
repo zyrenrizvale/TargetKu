@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import android.app.Application
 import com.rizki.targetku.data.models.ChatMessage
 import com.rizki.targetku.ui.components.GlassCard
 import com.rizki.targetku.viewmodel.AiTutorViewModel
@@ -38,7 +40,9 @@ import java.util.Locale
 
 @Composable
 fun AiTutorScreen(
-    viewModel: AiTutorViewModel = viewModel()
+    viewModel: AiTutorViewModel = viewModel(
+        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+    )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
