@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TargetKu</string>
+    <string name="app_tagline">Raih Kampus Impianmu!</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Selamat Datang!</string>
+    <string name="login_subtitle">Masuk untuk mulai merencanakan masa depanmu</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Masuk</string>
+    <string name="login_error">Username atau password salah. Coba lagi!</string>
+
+    <!-- Onboarding -->
+    <string name="step_name">Halo! Siapa namamu?</string>
+    <string name="step_school">Apa nama sekolahmu saat ini?</string>
+    <string name="step_plan">Apa rencana kuliahmu?</string>
+    <string name="step_campus">Pilih Kampus Impianmu!</string>
+    <string name="step_major">Pilih Jurusan Targetmu!</string>
+    <string name="step_tutorial">Yuk, Kenali TargetKu!</string>
+    <string name="local_plan">Dalam Negeri</string>
+    <string name="abroad_plan">Luar Negeri</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_academic">Akademik</string>
+    <string name="nav_schedule">Jadwal</string>
+    <string name="nav_ai_tutor">AI Tutor</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Home -->
+    <string name="home_welcome">Semangat mengejar</string>
+    <string name="home_note_hint">Tulis catatan atau refleksi harianmu di sini...</string>
+    <string name="home_note_save">Simpan Catatan</string>
+    <string name="home_avg_grade">Rata-rata Nilai</string>
+    <string name="home_tasks_done">Tugas Selesai</string>
+    <string name="home_tasks_pending">Tugas Pending</string>
+
+    <!-- Academic -->
+    <string name="academic_title">Tracker Akademik</string>
+    <string name="add_grade">Tambah Nilai</string>
+    <string name="add_task">Tambah Tugas</string>
+    <string name="export_pdf">Export PDF</string>
+    <string name="export_excel">Export Excel</string>
+
+    <!-- Schedule -->
+    <string name="schedule_title">Jadwal Belajar</string>
+    <string name="start_session">Mulai Sesi Belajar</string>
+    <string name="end_session">Akhiri Sesi</string>
+    <string name="skip_session">Lewati</string>
+
+    <!-- Strict Alarm -->
+    <string name="strict_alarm_title">Verifikasi Alasan</string>
+    <string name="strict_alarm_msg">AI mendeteksi kamu mencoba bolos! Bukti foto disimpan.</string>
+    <string name="reason_hint">Ketik alasanmu di sini...</string>
+    <string name="take_photo">Ambil Foto Bukti</string>
+    <string name="confirm_skip">Konfirmasi Lewati</string>
+
+    <!-- AI Tutor -->
+    <string name="ai_tutor_title">AI Study Buddy</string>
+    <string name="ai_tutor_name">Kiku</string>
+    <string name="ai_input_hint">Tanyakan sesuatu kepada Kiku...</string>
+    <string name="ai_send">Kirim</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Profil Saya</string>
+    <string name="edit_profile">Edit Personalisasi</string>
+    <string name="logout">Keluar</string>
+    <string name="logout_confirm">Apakah kamu yakin ingin keluar?</string>
+</resources>

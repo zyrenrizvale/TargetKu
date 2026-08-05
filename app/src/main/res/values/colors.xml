@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="baby_blue">#B3D9F7</color>
+    <color name="soft_pink">#F7B3D9</color>
+    <color name="lavender">#D9B3F7</color>
+    <color name="mint">#B3F7D9</color>
+    <color name="peach">#F7D9B3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="off_white">#F8F9FA</color>
+    <color name="text_primary">#2D2D2D</color>
+    <color name="text_secondary">#6B6B6B</color>
+    <color name="background">#F0F6FF</color>
+</resources>

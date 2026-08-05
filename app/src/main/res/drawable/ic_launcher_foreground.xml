@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Background circle -->
+    <path
+        android:fillColor="#B3D9F7"
+        android:pathData="M54,54m-54,0a54,54 0,1 1,108 0a54,54 0,1 1,-108 0" />
+    <!-- Book body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,35 Q30,30 35,30 L73,30 Q78,30 78,35 L78,75 Q78,80 73,80 L35,80 Q30,80 30,75 Z" />
+    <!-- Book spine -->
+    <path
+        android:fillColor="#F7B3D9"
+        android:pathData="M54,30 L54,80 Q50,80 47,77 L47,33 Q47,30 54,30 Z" />
+    <!-- Book pages lines -->
+    <path
+        android:strokeColor="#B3D9F7"
+        android:strokeWidth="2"
+        android:pathData="M58,40 L72,40" />
+    <path
+        android:strokeColor="#B3D9F7"
+        android:strokeWidth="2"
+        android:pathData="M58,48 L72,48" />
+    <path
+        android:strokeColor="#B3D9F7"
+        android:strokeWidth="2"
+        android:pathData="M58,56 L72,56" />
+    <!-- Target arrow head -->
+    <path
+        android:fillColor="#D9B3F7"
+        android:pathData="M80,25 L75,20 L75,24 L68,24 L68,26 L75,26 L75,30 Z" />
+    <!-- Target circles -->
+    <path
+        android:strokeColor="#F7B3D9"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M62,52m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0" />
+    <path
+        android:strokeColor="#D9B3F7"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M62,52m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+    <!-- Center dot -->
+    <path
+        android:fillColor="#F7B3D9"
+        android:pathData="M62,52m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+</vector>
