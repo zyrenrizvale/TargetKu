@@ -1,6 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package com.rizki.targetku.ui.screens
-
-@file:OptIn(ExperimentalMaterial3Api::class)
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.*
