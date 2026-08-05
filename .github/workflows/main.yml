@@ -33,11 +33,9 @@ jobs:
           gradle-version: '8.7'
 
       - name: Generate Gradle Wrapper
-        working-directory: ./targetku
         run: gradle wrapper --gradle-version=8.7
 
       - name: Beri Izin Eksekusi Gradle
-        working-directory: ./targetku
         run: chmod +x gradlew
 
       - name: Set Version
@@ -56,10 +54,8 @@ jobs:
             -dname "CN=TargetKu Dev, OU=RizkiDev, O=TargetKu, L=Indonesia, S=Riau, C=ID" \
             -storepass targetku2024 \
             -keypass targetku2024
-          cp targetku-release.jks targetku/targetku-release.jks
 
       - name: Build Release APK
-        working-directory: ./targetku
         env:
           VERSION_CODE: ${{ env.VERSION_CODE }}
           VERSION_NAME: ${{ env.VERSION_NAME }}
@@ -72,7 +68,7 @@ jobs:
       - name: Rename APK
         run: |
           NAMA_FILE="TargetKu_v${{ env.VERSION_NAME }}_b${{ env.VERSION_CODE }}.apk"
-          cp targetku/app/build/outputs/apk/release/app-release.apk "$NAMA_FILE"
+          cp app/build/outputs/apk/release/app-release.apk "$NAMA_FILE"
           echo "APK_PATH=$NAMA_FILE" >> $GITHUB_ENV
           echo "APK_NAME=$NAMA_FILE" >> $GITHUB_ENV
 
