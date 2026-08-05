@@ -252,7 +252,7 @@ fun StrictAlarmDialog(
                         onClick = onDismiss,
                         modifier = Modifier.weight(1f).height(48.dp),
                         shape = RoundedCornerShape(12.dp),
-                        colors = OutlinedButtonDefaults.colors(
+                        colors = ButtonDefaults.outlinedButtonColors(
                             contentColor = BabyBlueDark
                         )
                     ) {

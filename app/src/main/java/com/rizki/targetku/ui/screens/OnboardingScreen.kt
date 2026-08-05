@@ -1,5 +1,7 @@
 package com.rizki.targetku.ui.screens
 
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
@@ -194,7 +196,7 @@ private fun OnboardingNavButtons(
                 onClick = onPrevious,
                 modifier = Modifier.weight(1f).height(52.dp),
                 shape = RoundedCornerShape(14.dp),
-                colors = OutlinedButtonDefaults.colors(contentColor = BabyBlueDark)
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = BabyBlueDark)
             ) {
                 Icon(Icons.Default.ArrowBack, null, Modifier.size(18.dp))
                 Spacer(Modifier.width(4.dp))

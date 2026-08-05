@@ -1,5 +1,7 @@
 package com.rizki.targetku.ui.screens
 
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
@@ -238,7 +240,7 @@ private fun StudySessionWidget(
                     OutlinedButton(
                         onClick = onSkip,
                         shape = RoundedCornerShape(12.dp),
-                        colors = OutlinedButtonDefaults.colors(contentColor = ErrorRose),
+                        colors = ButtonDefaults.outlinedButtonColors(contentColor = ErrorRose),
                         border = BorderStroke(1.dp, ErrorRose)
                     ) {
                         Icon(Icons.Default.SkipNext, null, Modifier.size(16.dp))
