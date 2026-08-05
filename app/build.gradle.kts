@@ -45,7 +45,7 @@ android {
     signingConfigs {
         create("release") {
             val keystorePath = System.getenv("KEYSTORE_PATH")
-            storeFile = if (keystorePath != null) file(keystorePath) else file("${rootProject.rootDir}/targetku-release.jks")
+            storeFile = if (keystorePath != null) rootProject.file(keystorePath) else rootProject.file("targetku-release.jks")
             storePassword = System.getenv("STORE_PASSWORD") ?: "targetku2024"
             keyAlias = System.getenv("KEY_ALIAS") ?: "targetku"
             keyPassword = System.getenv("KEY_PASSWORD") ?: "targetku2024"
