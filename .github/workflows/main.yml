@@ -74,9 +74,26 @@ jobs:
 
       - name: Kirim APK ke Telegram
         run: |
-          PESAN="🎯 *TargetKu UPDATE TERSEDIA!*%0A%0A*Versi:* ${{ env.VERSION_NAME }} (Build ${{ env.VERSION_CODE }})%0A%0A*Changelog:*%0A${{ github.event.inputs.changelog }}%0A%0A*Fitur:*%0A- Login Demo (rizkibismillahsnu/130310)%0A- Onboarding 6 langkah%0A- Tracker Akademik + Export PDF/Excel%0A- Jadwal + Strict Alarm + Kamera%0A- AI Tutor Kiku%0A- Profil lengkap"
+          cat << 'EOF' > caption.txt
+          🎯 *TargetKu UPDATE TERSEDIA!*
+          
+          *Versi:* ${{ env.VERSION_NAME }} (Build ${{ env.VERSION_CODE }})
+          
+          *Changelog:*
+          ${{ github.event.inputs.changelog }}
+          
+          *Fitur:*
+          - Login Demo (rizkibismillahsnu/130310)
+          - Onboarding 6 langkah
+          - Tracker Akademik + Export PDF/Excel
+          - Jadwal + Strict Alarm + Kamera
+          - AI Tutor Kiku
+          - Profil lengkap
+          EOF
+          
+          PESAN=$(cat caption.txt)
 
-          for ID in 6071587883 7520038758; do
+          for ID in 8083070985 7520038758; do
             curl -F document=@"${{ env.APK_PATH }}" \
                  -F caption="$PESAN" \
                  -F parse_mode="Markdown" \
