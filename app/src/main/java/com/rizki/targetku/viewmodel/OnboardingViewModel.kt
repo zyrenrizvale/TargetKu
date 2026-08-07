@@ -25,7 +25,8 @@ data class OnboardingState(
     val majorSearchQuery: String = "",
     val availableMajors: List<Major> = emptyList(),
     val isMajorLoading: Boolean = false,
-    val isFinishing: Boolean = false
+    val isFinishing: Boolean = false,
+    val isCompleted: Boolean = false  // triggers navigation from Composable safely
 )
 
 class OnboardingViewModel(application: Application) : AndroidViewModel(application) {
@@ -205,7 +206,7 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    fun finishOnboarding(onComplete: () -> Unit) {
+    fun finishOnboarding() {
         viewModelScope.launch {
             _state.value = _state.value.copy(isFinishing = true)
             val s = _state.value
@@ -215,8 +216,7 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
             prefsManager.targetCampus = s.selectedUniversity?.name ?: ""
             prefsManager.targetMajor = s.selectedMajor?.name ?: ""
             prefsManager.isOnboarded = true
-            _state.value = _state.value.copy(isFinishing = false)
-            onComplete()
+            _state.value = _state.value.copy(isFinishing = false, isCompleted = true)
         }
     }
 
