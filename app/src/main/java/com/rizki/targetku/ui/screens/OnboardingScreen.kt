@@ -48,6 +48,13 @@ fun OnboardingScreen(
     val pagerState = rememberPagerState(pageCount = { OnboardingViewModel.TOTAL_STEPS })
     val scope = rememberCoroutineScope()
 
+    // Safe navigation: triggered from main thread via LaunchedEffect
+    LaunchedEffect(state.isCompleted) {
+        if (state.isCompleted) {
+            onOnboardingComplete()
+        }
+    }
+
     LaunchedEffect(state.currentStep) {
         if (pagerState.currentPage != state.currentStep) {
             pagerState.animateScrollToPage(state.currentStep)
@@ -125,7 +132,7 @@ fun OnboardingScreen(
                     if (state.currentStep < OnboardingViewModel.TOTAL_STEPS - 1) {
                         viewModel.nextStep()
                     } else {
-                        viewModel.finishOnboarding { onOnboardingComplete() }
+                        viewModel.finishOnboarding()
                     }
                 }
             )
