@@ -30,6 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import android.app.Application
+import androidx.compose.ui.platform.LocalContext
 import com.rizki.targetku.viewmodel.AuthState
 import com.rizki.targetku.viewmodel.AuthViewModel
 import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
