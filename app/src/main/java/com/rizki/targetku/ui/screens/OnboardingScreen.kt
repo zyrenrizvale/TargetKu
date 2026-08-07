@@ -27,9 +27,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import android.app.Application
+import androidx.compose.ui.platform.LocalContext
 import com.rizki.targetku.data.models.Major
 import com.rizki.targetku.data.models.University
 import com.rizki.targetku.viewmodel.OnboardingViewModel
+import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
 import com.rizki.targetku.ui.theme.*
 import kotlinx.coroutines.launch
 
@@ -37,7 +40,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun OnboardingScreen(
     onOnboardingComplete: () -> Unit,
-    viewModel: OnboardingViewModel = viewModel()
+    viewModel: OnboardingViewModel = viewModel(
+        factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
+    )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val pagerState = rememberPagerState(pageCount = { OnboardingViewModel.TOTAL_STEPS })

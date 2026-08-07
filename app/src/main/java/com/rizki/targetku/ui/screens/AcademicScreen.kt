@@ -31,13 +31,14 @@ import com.rizki.targetku.data.models.TaskPriority
 import com.rizki.targetku.ui.components.GlassCard
 import com.rizki.targetku.ui.components.GradientCard
 import com.rizki.targetku.viewmodel.AcademicViewModel
+import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
 import com.rizki.targetku.ui.theme.*
 import java.text.DecimalFormat
 
 @Composable
 fun AcademicScreen(
     viewModel: AcademicViewModel = viewModel(
-        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+        factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
     )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()

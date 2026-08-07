@@ -32,12 +32,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.rizki.targetku.viewmodel.AuthState
 import com.rizki.targetku.viewmodel.AuthViewModel
+import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
 import com.rizki.targetku.ui.theme.*
 
 @Composable
 fun LoginScreen(
     onLoginSuccess: (isFirstTime: Boolean) -> Unit,
-    viewModel: AuthViewModel = viewModel()
+    viewModel: AuthViewModel = viewModel(
+        factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
+    )
 ) {
     val authState by viewModel.authState.collectAsStateWithLifecycle()
     val username by viewModel.usernameInput.collectAsStateWithLifecycle()

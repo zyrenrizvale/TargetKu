@@ -30,12 +30,13 @@ import android.app.Application
 import com.rizki.targetku.data.models.ScheduleItem
 import com.rizki.targetku.ui.components.StrictAlarmDialog
 import com.rizki.targetku.viewmodel.ScheduleViewModel
+import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
 import com.rizki.targetku.ui.theme.*
 
 @Composable
 fun ScheduleScreen(
     viewModel: ScheduleViewModel = viewModel(
-        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+        factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
     )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()

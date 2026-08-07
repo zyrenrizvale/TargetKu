@@ -30,11 +30,12 @@ import java.text.DecimalFormat
 
 import androidx.lifecycle.ViewModelProvider
 import android.app.Application
+import com.rizki.targetku.viewmodel.TargetKuViewModelFactory
 
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = viewModel(
-        factory = ViewModelProvider.AndroidViewModelFactory.getInstance(LocalContext.current.applicationContext as Application)
+        factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
     )
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
