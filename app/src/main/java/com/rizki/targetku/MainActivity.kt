@@ -1,16 +1,27 @@
 package com.rizki.targetku
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,10 +37,33 @@ import com.rizki.targetku.ui.theme.TargetKuTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Capture crash reason and restart app showing the error
+        val crashMessage = intent?.getStringExtra("crash_message")
+
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
+            val msg = buildString {
+                appendLine("CRASH: ${throwable::class.java.simpleName}")
+                appendLine(throwable.message)
+                appendLine()
+                throwable.stackTrace.take(10).forEach { appendLine(it.toString()) }
+            }
+            val restart = Intent(this, MainActivity::class.java).apply {
+                putExtra("crash_message", msg)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+            startActivity(restart)
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
+
         enableEdgeToEdge()
         setContent {
             TargetKuTheme {
-                TargetKuApp()
+                if (crashMessage != null) {
+                    CrashScreen(crashMessage)
+                } else {
+                    TargetKuApp()
+                }
             }
         }
     }
@@ -191,5 +225,37 @@ fun MainScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun CrashScreen(message: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF1A1A2E))
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
+        Spacer(Modifier.height(60.dp))
+        Text(
+            "💥 App Crash - Error Info",
+            color = Color(0xFFFF6B6B),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(Modifier.height(16.dp))
+        Text(
+            "Screenshot layar ini dan kirimkan ke developer!",
+            color = Color.White,
+            fontSize = 14.sp
+        )
+        Spacer(Modifier.height(16.dp))
+        Text(
+            message,
+            color = Color(0xFF90EE90),
+            fontSize = 11.sp,
+            fontFamily = FontFamily.Monospace
+        )
     }
 }
