@@ -46,6 +46,19 @@ class PreferencesManager(context: Context) {
         get() = prefs.getString(KEY_PROFILE_PHOTO, "") ?: ""
         set(value) = prefs.edit().putString(KEY_PROFILE_PHOTO, value).apply()
 
+    // ============ UTBK & Streak ============
+    var utbkDate: String
+        get() = prefs.getString(KEY_UTBK_DATE, "") ?: ""
+        set(value) = prefs.edit().putString(KEY_UTBK_DATE, value).apply()
+
+    var studyStreak: Int
+        get() = prefs.getInt(KEY_STREAK, 0)
+        set(value) = prefs.edit().putInt(KEY_STREAK, value).apply()
+
+    var lastStudyDate: String
+        get() = prefs.getString(KEY_LAST_STUDY_DATE, "") ?: ""
+        set(value) = prefs.edit().putString(KEY_LAST_STUDY_DATE, value).apply()
+
     fun getUserPrefs(): UserPrefs = UserPrefs(
         isLoggedIn = isLoggedIn,
         isOnboarded = isOnboarded,
@@ -193,5 +206,8 @@ class PreferencesManager(context: Context) {
         private const val KEY_SCHEDULE = "schedule_items"
         private const val KEY_CHAT = "chat_messages"
         private const val KEY_GEMINI_KEY = "gemini_api_key"
+        private const val KEY_UTBK_DATE = "utbk_date"
+        private const val KEY_STREAK = "study_streak"
+        private const val KEY_LAST_STUDY_DATE = "last_study_date"
     }
 }
