@@ -28,6 +28,19 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _state = MutableStateFlow(HomeState())
     val state: StateFlow<HomeState> = _state.asStateFlow()
 
+    private val quotes = listOf(
+        Pair("Pendidikan adalah senjata paling ampuh yang dapat kamu gunakan untuk mengubah dunia.", "Nelson Mandela"),
+        Pair("Belajarlah seolah kamu akan hidup selamanya, hiduplah seolah kamu akan mati besok.", "Mahatma Gandhi"),
+        Pair("Kesuksesan adalah hasil dari persiapan, kerja keras, dan belajar dari kegagalan.", "Colin Powell"),
+        Pair("Jangan biarkan hari ini berlalu tanpa melakukan sesuatu yang lebih baik dari kemarin.", "Pepatah"),
+        Pair("Setiap detik yang kamu habiskan untuk belajar hari ini adalah investasi untuk masa depanmu.", "TargetKu"),
+        Pair("Mimpi besar membutuhkan usaha besar. Kamu sudah di jalur yang benar!", "TargetKu"),
+        Pair("Ilmu itu seperti cahaya - semakin kamu berbagi, semakin terang jalanmu.", "TargetKu"),
+        Pair("Mulai dari di mana kamu berada. Gunakan apa yang kamu punya. Lakukan apa yang kamu bisa.", "Arthur Ashe"),
+        Pair("Kunci keberhasilan bukan pada seberapa pintar kamu, tapi seberapa keras kamu berusaha.", "Pepatah"),
+        Pair("Setiap pagi membawa kesempatan baru untuk menjadi lebih baik dari kemarin.", "TargetKu"),
+    )
+
     init {
         loadData()
     }
@@ -76,16 +89,4 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private val quotes = listOf(
-        Pair("Pendidikan adalah senjata paling ampuh yang dapat kamu gunakan untuk mengubah dunia.", "Nelson Mandela"),
-        Pair("Belajarlah seolah kamu akan hidup selamanya, hiduplah seolah kamu akan mati besok.", "Mahatma Gandhi"),
-        Pair("Kesuksesan adalah hasil dari persiapan, kerja keras, dan belajar dari kegagalan.", "Colin Powell"),
-        Pair("Jangan biarkan hari ini berlalu tanpa melakukan sesuatu yang lebih baik dari kemarin.", "Pepatah"),
-        Pair("Setiap detik yang kamu habiskan untuk belajar hari ini adalah investasi untuk masa depanmu.", "TargetKu"),
-        Pair("Mimpi besar membutuhkan usaha besar. Kamu sudah di jalur yang benar!", "TargetKu"),
-        Pair("Ilmu itu seperti cahaya - semakin kamu berbagi, semakin terang jalanmu.", "TargetKu"),
-        Pair("Mulai dari di mana kamu berada. Gunakan apa yang kamu punya. Lakukan apa yang kamu bisa.", "Arthur Ashe"),
-        Pair("Kunci keberhasilan bukan pada seberapa pintar kamu, tapi seberapa keras kamu berusaha.", "Pepatah"),
-        Pair("Setiap pagi membawa kesempatan baru untuk menjadi lebih baik dari kemarin.", "TargetKu"),
-    )
 }
