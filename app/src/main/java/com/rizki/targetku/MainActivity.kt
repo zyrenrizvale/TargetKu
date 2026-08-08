@@ -9,6 +9,7 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -189,7 +190,7 @@ fun MainScreen(
                 }
             )
         },
-        contentWindowInsets = WindowInsets(0, 0, 0, 0)
+        contentWindowInsets = WindowInsets.systemBars.only(WindowInsetsSides.Bottom)
     ) { innerPadding ->
         Box(
             modifier = Modifier
@@ -213,7 +214,15 @@ fun MainScreen(
                     fadeOut(animationSpec = tween(90))
                 }
             ) {
-                composable(Routes.HOME) { HomeScreen() }
+                composable(Routes.HOME) {
+                    HomeScreen(
+                        onNavigateTo = { route -> navController.navigate(route) {
+                            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+                            launchSingleTop = true
+                            restoreState = true
+                        }}
+                    )
+                }
                 composable(Routes.ACADEMIC) { AcademicScreen() }
                 composable(Routes.SCHEDULE) { ScheduleScreen() }
                 composable(Routes.AI_TUTOR) { AiTutorScreen() }
