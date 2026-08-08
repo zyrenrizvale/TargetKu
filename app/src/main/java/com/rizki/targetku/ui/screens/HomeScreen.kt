@@ -40,7 +40,7 @@ fun HomeScreen(
         factory = TargetKuViewModelFactory(LocalContext.current.applicationContext as Application)
     )
 ) {
-    val state by viewModel.collectAsStateWithLifecycle()
+    val state = viewModel.collectAsStateWithLifecycle()
     
     LaunchedEffect(Unit) { viewModel.loadData() }
 
@@ -80,7 +80,7 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
                     StatMiniCard(
-                        icon = Icons.Default.LocalFire,
+                        icon = Icons.Default.LocalFireDepartment,
                         label = "Streak",
                         value = "${state.studyStreak} hari",
                         color = Color(0xFFFF6B35),
